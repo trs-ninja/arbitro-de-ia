@@ -1,0 +1,1316 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>O ÁRBITRO SEM CLUBE | Dossiê Oficial 🤖💚</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@300;400;700&family=Barlow+Condensed:ital,wght@0,400;0,600;0,800;1,400;1,800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --verde: #00c853;
+  --verde2: #00a843;
+  --verde-escuro: #004d20;
+  --preto: #050a05;
+  --preto2: #0d150d;
+  --preto3: #152215;
+  --cinza: #7a8a7a;
+  --branco: #eef5ee;
+  --amarelo: #ffd600;
+  --vermelho: #d50000;
+  --borda: rgba(0,200,83,0.2);
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--preto);
+  color: var(--branco);
+  font-family: 'Barlow Condensed', sans-serif;
+  overflow-x: hidden;
+}
+
+/* ===== FITA TOPO ===== */
+.fita {
+  background: var(--verde);
+  overflow: hidden;
+  padding: 7px 0;
+}
+.fita-inner {
+  display: flex;
+  animation: fita-run 35s linear infinite;
+  white-space: nowrap;
+  width: max-content;
+}
+.fita-item {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 13px;
+  letter-spacing: 3px;
+  color: var(--preto);
+  padding: 0 36px;
+  flex-shrink: 0;
+}
+@keyframes fita-run {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* ===== HERO ===== */
+.hero {
+  min-height: 100vh;
+  background:
+    radial-gradient(ellipse at 15% 60%, rgba(0,200,83,0.09) 0%, transparent 55%),
+    radial-gradient(ellipse at 85% 20%, rgba(0,200,83,0.06) 0%, transparent 45%),
+    var(--preto);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 80px 20px 100px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(0,200,83,0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,200,83,0.035) 1px, transparent 1px);
+  background-size: 56px 56px;
+  pointer-events: none;
+}
+
+.hero-badge {
+  background: var(--vermelho);
+  color: #fff;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 12px;
+  letter-spacing: 5px;
+  padding: 5px 20px;
+  margin-bottom: 32px;
+  display: inline-block;
+  animation: sobe 0.5s ease both;
+}
+
+.hero-titulo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(56px, 14vw, 148px);
+  line-height: 0.88;
+  letter-spacing: -2px;
+  margin-bottom: 16px;
+  animation: sobe 0.6s ease both;
+}
+
+.ht-1 { color: #fff; display: block; }
+.ht-2 { color: var(--verde); display: block; }
+.ht-3 {
+  color: var(--cinza);
+  display: block;
+  font-size: 0.55em;
+  letter-spacing: 4px;
+  text-decoration: line-through;
+  text-decoration-color: var(--vermelho);
+  text-decoration-thickness: 4px;
+}
+
+.hero-sub {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(15px, 2.5vw, 21px);
+  font-weight: 300;
+  color: var(--cinza);
+  letter-spacing: 2px;
+  max-width: 680px;
+  line-height: 1.7;
+  margin-bottom: 48px;
+  animation: sobe 0.7s ease both;
+}
+.hero-sub strong { color: var(--verde); font-weight: 700; }
+.hero-sub .r { color: var(--vermelho); font-weight: 700; }
+
+.stats-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  border: 1px solid var(--borda);
+  animation: sobe 0.8s ease both;
+}
+
+.stat {
+  padding: 22px 40px;
+  border-right: 1px solid var(--borda);
+  text-align: center;
+}
+.stat:last-child { border-right: none; }
+
+.stat-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 44px;
+  color: var(--verde);
+  line-height: 1;
+  display: block;
+}
+.stat-label {
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: var(--cinza);
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+
+.hint {
+  position: absolute;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 11px;
+  letter-spacing: 3px;
+  color: var(--cinza);
+  text-transform: uppercase;
+  animation: bounce 2s ease-in-out infinite;
+}
+
+@keyframes sobe { from{opacity:0;transform:translateY(28px)} to{opacity:1;transform:translateY(0)} }
+@keyframes bounce { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(8px)} }
+
+/* ===== CONTAINERS ===== */
+.wrap { max-width: 1080px; margin: 0 auto; padding: 0 20px; }
+
+.sec {
+  padding: 88px 20px;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+.sec-tag {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 11px;
+  letter-spacing: 5px;
+  color: var(--verde);
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.sec-tag::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--borda);
+}
+
+.sec-h {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(34px, 6vw, 66px);
+  letter-spacing: 2px;
+  color: #fff;
+  line-height: 1;
+  margin-bottom: 52px;
+}
+.sec-h .v { color: var(--verde); }
+.sec-h .r { color: var(--vermelho); }
+
+.div-line {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(0,200,83,0.3), transparent);
+}
+
+.bg-alt {
+  background: var(--preto2);
+  border-top: 1px solid var(--borda);
+  border-bottom: 1px solid var(--borda);
+}
+
+/* ===== APRESENTAÇÃO ===== */
+.apres-grid {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  gap: 3px;
+}
+
+.apres-texto {
+  background: var(--preto2);
+  border: 1px solid var(--borda);
+  border-left: 5px solid var(--verde);
+  padding: 40px;
+  font-size: 17px;
+  line-height: 1.85;
+  color: #a8c0a8;
+}
+.apres-texto p { margin-bottom: 16px; }
+.apres-texto p:last-child { margin-bottom: 0; }
+.apres-texto strong { color: var(--verde); }
+.apres-texto .r { color: var(--vermelho); }
+.apres-texto .y { color: var(--amarelo); }
+.apres-texto em { color: #fff; font-style: italic; }
+
+.perfil-box {
+  background: var(--preto3);
+  border: 1px solid var(--borda);
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.p-topo {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid var(--borda);
+}
+
+.p-ava {
+  width: 60px; height: 60px;
+  border-radius: 50%;
+  background: var(--verde-escuro);
+  border: 3px solid var(--verde);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 26px;
+  flex-shrink: 0;
+}
+
+.p-nome {
+  font-family: 'Oswald', sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 2px;
+}
+.p-handle { font-size: 13px; color: var(--verde); }
+
+.p-linha {
+  display: flex;
+  gap: 10px;
+  font-size: 14px;
+  color: #a0b8a0;
+  margin-bottom: 12px;
+  line-height: 1.5;
+  align-items: flex-start;
+}
+.p-linha:last-child { margin-bottom: 0; }
+.p-linha .ic { flex-shrink: 0; }
+.p-linha strong { color: var(--verde); }
+.p-linha .r { color: var(--vermelho); }
+.p-linha .risco { text-decoration: line-through; color: var(--cinza); }
+
+/* ===== CARACTERISTICAS ===== */
+.char-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  gap: 2px;
+}
+
+.char-card {
+  background: var(--preto2);
+  border: 1px solid var(--borda);
+  padding: 32px;
+  position: relative;
+  overflow: hidden;
+  transition: background 0.2s, border-color 0.2s;
+}
+.char-card:hover { background: var(--preto3); border-color: var(--verde); }
+
+.char-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--verde);
+}
+.char-card.red::before { background: var(--vermelho); }
+.char-card.yel::before { background: var(--amarelo); }
+
+.cc-ico { font-size: 34px; margin-bottom: 14px; display: block; }
+
+.cc-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 22px;
+  letter-spacing: 2px;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.cc-desc {
+  font-size: 15px;
+  color: var(--cinza);
+  line-height: 1.65;
+}
+.cc-desc strong { color: var(--verde); }
+.cc-desc .r { color: var(--vermelho); }
+.cc-desc .y { color: var(--amarelo); }
+
+/* ===== FAKE NEWS ===== */
+.fake-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.fake-card {
+  background: var(--preto2);
+  border: 1px solid var(--borda);
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  overflow: hidden;
+  transition: border-color 0.2s;
+}
+.fake-card:hover { border-color: var(--vermelho); }
+
+.fake-lado {
+  background: #1a0000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 10px;
+  gap: 6px;
+  border-right: 1px solid rgba(213,0,0,0.3);
+}
+
+.fake-label {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: var(--vermelho);
+  writing-mode: vertical-lr;
+  text-orientation: mixed;
+  transform: rotate(180deg);
+  text-transform: uppercase;
+}
+
+.fake-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 40px;
+  color: var(--vermelho);
+  line-height: 1;
+}
+
+.fake-body { padding: 24px 28px; }
+
+.fake-time {
+  background: var(--vermelho);
+  color: #fff;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 10px;
+  letter-spacing: 3px;
+  padding: 2px 10px;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+.fake-titulo {
+  font-family: 'Oswald', sans-serif;
+  font-size: 19px;
+  font-weight: 700;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+  line-height: 1.2;
+}
+
+.fake-desc {
+  font-size: 15px;
+  color: #a0b0a0;
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+.fake-desc .r { color: #f87171; }
+.fake-desc .v { color: var(--verde); }
+.fake-desc .y { color: var(--amarelo); }
+
+.fake-real {
+  background: rgba(0,200,83,0.06);
+  border-left: 3px solid var(--verde);
+  padding: 10px 14px;
+  font-size: 13px;
+  color: #80c080;
+  line-height: 1.5;
+  font-style: italic;
+}
+
+/* ===== TRADUTOR ===== */
+.trad-grid { display: flex; flex-direction: column; gap: 3px; }
+
+.trad-bloco {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border: 1px solid var(--borda);
+  overflow: hidden;
+  transition: border-color 0.2s;
+}
+.trad-bloco:hover { border-color: var(--verde); }
+
+.trad-col { padding: 24px 28px; }
+.trad-col:first-child {
+  background: var(--preto2);
+  border-right: 1px solid var(--borda);
+}
+.trad-col:last-child { background: rgba(213,0,0,0.05); }
+
+.trad-tag {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 10px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.trad-tag.a { color: var(--cinza); }
+.trad-tag.b { color: var(--vermelho); }
+.trad-tag::before { content: ''; width: 20px; height: 2px; background: currentColor; flex-shrink: 0; }
+
+.trad-txt {
+  font-size: 15px;
+  line-height: 1.65;
+  font-style: italic;
+  color: #c0d8c0;
+}
+.trad-col:last-child .trad-txt { color: #ffa0a0; }
+.trad-txt .v { color: var(--verde); font-style: normal; font-weight: 600; }
+.trad-txt .y { color: var(--amarelo); font-style: normal; font-weight: 600; }
+
+/* ===== BLOQUEIO ===== */
+.bloq-sec {
+  background:
+    radial-gradient(ellipse at 50% 50%, rgba(0,77,32,0.4) 0%, transparent 70%),
+    var(--verde-escuro);
+  padding: 80px 20px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.bloq-sec::before {
+  content: '🚫';
+  position: absolute;
+  font-size: 280px;
+  opacity: 0.05;
+  top: -40px; left: -40px;
+  pointer-events: none;
+}
+.bloq-sec::after {
+  content: '🚫';
+  position: absolute;
+  font-size: 280px;
+  opacity: 0.05;
+  bottom: -40px; right: -40px;
+  pointer-events: none;
+}
+
+.bloq-top {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 12px;
+  letter-spacing: 6px;
+  color: rgba(255,255,255,0.4);
+  margin-bottom: 8px;
+}
+
+.bloq-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(80px, 18vw, 160px);
+  color: #fff;
+  line-height: 1;
+  display: block;
+  animation: pulsa 2.2s ease-in-out infinite;
+}
+@keyframes pulsa { 0%,100%{opacity:1} 50%{opacity:0.6} }
+
+.bloq-label {
+  font-family: 'Oswald', sans-serif;
+  font-size: 18px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.5);
+  letter-spacing: 3px;
+  margin-top: 8px;
+}
+.bloq-obs {
+  font-size: 13px;
+  color: rgba(255,255,255,0.25);
+  margin-top: 10px;
+  font-style: italic;
+}
+
+/* ===== APELIDOS ===== */
+.apelidos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 2px;
+}
+
+.ape-card {
+  background: var(--preto2);
+  border: 1px solid var(--borda);
+  padding: 28px 22px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.2s;
+}
+.ape-card:hover {
+  background: var(--preto3);
+  border-color: var(--verde);
+  transform: translateY(-4px);
+}
+
+.ape-bg {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 90px;
+  color: rgba(0,200,83,0.05);
+  position: absolute;
+  bottom: -14px; right: 8px;
+  line-height: 1;
+  pointer-events: none;
+  transition: color 0.2s;
+}
+.ape-card:hover .ape-bg { color: rgba(0,200,83,0.1); }
+
+.ape-nome {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 21px;
+  letter-spacing: 2px;
+  color: var(--verde);
+  margin-bottom: 8px;
+  line-height: 1.1;
+  position: relative;
+}
+.ape-desc {
+  font-size: 13px;
+  color: var(--cinza);
+  line-height: 1.6;
+  position: relative;
+}
+
+/* ===== MEDIDORES ===== */
+.med-box {
+  background: var(--preto2);
+  border: 1px solid var(--borda);
+  padding: 40px;
+}
+
+.med-row {
+  display: grid;
+  grid-template-columns: 1fr 200px;
+  gap: 20px;
+  align-items: center;
+  padding: 18px 0;
+  border-bottom: 1px solid rgba(0,200,83,0.07);
+}
+.med-row:last-child { border-bottom: none; }
+
+.med-label { font-size: 16px; color: #a8c0a8; font-style: italic; }
+
+.med-right { display: flex; flex-direction: column; gap: 6px; align-items: flex-end; }
+
+.med-val {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 28px;
+  line-height: 1;
+}
+.c-v { color: var(--verde); }
+.c-r { color: var(--vermelho); }
+.c-y { color: var(--amarelo); }
+
+.med-track {
+  width: 100%;
+  height: 4px;
+  background: rgba(255,255,255,0.05);
+  overflow: hidden;
+}
+.med-fill {
+  height: 100%;
+  width: 0;
+  transition: width 1.8s cubic-bezier(0.16,1,0.3,1);
+}
+.f-v { background: var(--verde); }
+.f-r { background: var(--vermelho); }
+.f-y { background: var(--amarelo); }
+
+/* ===== VEREDICTO ===== */
+.ver-sec {
+  background:
+    radial-gradient(ellipse at 50% 100%, rgba(0,200,83,0.1) 0%, transparent 60%),
+    var(--preto);
+  padding: 100px 20px;
+  text-align: center;
+}
+
+.ver-inner { max-width: 820px; margin: 0 auto; }
+
+.ver-ico { font-size: 60px; display: block; margin-bottom: 24px; }
+
+.ver-h {
+  font-family: 'Bebas Neue', sans-serif;
+  line-height: 0.9;
+  margin-bottom: 36px;
+}
+.ver-h .l1 { font-size: clamp(48px, 10vw, 100px); color: #fff; display: block; }
+.ver-h .l2 { font-size: clamp(56px, 12vw, 120px); color: var(--verde); display: block; letter-spacing: 4px; }
+.ver-h .l3 { font-size: clamp(14px, 2vw, 18px); color: var(--cinza); letter-spacing: 6px; display: block; margin-top: 8px; font-family: 'Oswald', sans-serif; font-weight: 300; text-transform: uppercase; }
+
+.ver-txt {
+  font-size: 18px;
+  line-height: 2;
+  color: var(--cinza);
+  margin-bottom: 44px;
+}
+.ver-txt strong { color: #fff; }
+.ver-txt .v { color: var(--verde); }
+.ver-txt .r { color: var(--vermelho); }
+.ver-txt .y { color: var(--amarelo); }
+
+.ver-sentenca {
+  display: inline-block;
+  background: transparent;
+  border: 2px solid var(--verde);
+  padding: 22px 48px;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 26px;
+  letter-spacing: 4px;
+  color: var(--verde);
+  margin-bottom: 20px;
+  transition: background 0.2s;
+}
+.ver-sentenca:hover { background: rgba(0,200,83,0.08); }
+
+.ver-assina {
+  font-size: 13px;
+  color: rgba(255,255,255,0.2);
+  letter-spacing: 2px;
+  font-style: italic;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  background: var(--preto2);
+  border-top: 1px solid var(--borda);
+  padding: 40px 20px;
+  text-align: center;
+}
+.footer-logo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 30px;
+  letter-spacing: 4px;
+  color: var(--verde);
+  margin-bottom: 12px;
+}
+footer p {
+  font-size: 13px;
+  color: #2a3a2a;
+  line-height: 1.8;
+  max-width: 600px;
+  margin: 0 auto;
+}
+footer strong { color: #3a4a3a; }
+
+/* ===== RESPONSIVO ===== */
+@media (max-width: 700px) {
+  .apres-grid { grid-template-columns: 1fr; }
+  .trad-bloco { grid-template-columns: 1fr; }
+  .trad-col:first-child { border-right: none; border-bottom: 1px solid var(--borda); }
+  .med-row { grid-template-columns: 1fr; }
+  .med-right { align-items: flex-start; }
+  .fake-card { grid-template-columns: 60px 1fr; }
+  .stat { padding: 16px 22px; }
+  .apres-texto { padding: 28px; }
+  .med-box { padding: 24px; }
+}
+</style>
+</head>
+<body>
+
+<!-- FITA -->
+<div class="fita" aria-hidden="true">
+  <div class="fita-inner">
+    <span class="fita-item">🚨 ANALISTA "SEM CLUBE" DEFENDE PALMEIRAS PELA 47ª VEZ NA SEMANA</span>
+    <span class="fita-item">•</span>
+    <span class="fita-item">🤖 ESPECIALISTA EM IA USA TECNOLOGIA PARA PARECER IMPARCIAL</span>
+    <span class="fita-item">•</span>
+    <span class="fita-item">🚫 RECORDE: 119 BLOQUEIOS EM UMA ÚNICA TARDE DE DOMINGO</span>
+    <span class="fita-item">•</span>
+    <span class="fita-item">📰 FAKE NEWS SOBRE RIVAIS CONFIRMADA PELO PRÓPRIO ÁRBITRO</span>
+    <span class="fita-item">•</span>
+    <span class="fita-item">💚 PALMEIRENSE DESDE CRIANÇA JURA SER "ISENTO" EM ANÁLISES</span>
+    <span class="fita-item">•</span>
+    <span class="fita-item">🚨 ANALISTA "SEM CLUBE" DEFENDE PALMEIRAS PELA 47ª VEZ NA SEMANA</span>
+    <span class="fita-item">•</span>
+    <span class="fita-item">🤖 ESPECIALISTA EM IA USA TECNOLOGIA PARA PARECER IMPARCIAL</span>
+    <span class="fita-item">•</span>
+    <span class="fita-item">🚫 RECORDE: 119 BLOQUEIOS EM UMA ÚNICA TARDE DE DOMINGO</span>
+    <span class="fita-item">•</span>
+    <span class="fita-item">📰 FAKE NEWS SOBRE RIVAIS CONFIRMADA PELO PRÓPRIO ÁRBITRO</span>
+    <span class="fita-item">•</span>
+    <span class="fita-item">💚 PALMEIRENSE DESDE CRIANÇA JURA SER "ISENTO" EM ANÁLISES</span>
+    <span class="fita-item">•</span>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge">⚠ Dossiê Público — Distribuição Gratuita para os Bloqueados</div>
+
+  <h1 class="hero-titulo">
+    <span class="ht-1">O Árbitro</span>
+    <span class="ht-2">Palmeirense</span>
+    <span class="ht-3">sem clubismo</span>
+  </h1>
+
+  <p class="hero-sub">
+    Palmeirense de coração desde sempre.<br>
+    Comenta arbitragem com <strong>"total isenção"</strong>.<br>
+    Ataca rivais com <span class="r">fake news</span>. Passa pano pro verde. Bloqueia quem discorda. 🚫
+  </p>
+
+  <div class="stats-row">
+    <div class="stat">
+      <span class="stat-num">∞</span>
+      <span class="stat-label">Bloqueios dados</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">0%</span>
+      <span class="stat-label">Isenção real</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">💚</span>
+      <span class="stat-label">Time de "nenhum"</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">∞</span>
+      <span class="stat-label">Fake news postadas</span>
+    </div>
+  </div>
+
+  <div class="hint">↓ as provas estão aqui embaixo ↓</div>
+</section>
+
+<div class="div-line"></div>
+
+<!-- APRESENTAÇÃO -->
+<section class="sec">
+  <div class="sec-tag">Seção 01 — Quem é o Personagem</div>
+  <h2 class="sec-h">O <span class="v">Árbitro</span> que Nasceu <span class="r">Verde</span></h2>
+
+  <div class="apres-grid">
+    <div class="apres-texto">
+      <p>
+        Existe no Brasil um personagem curioso: o <strong>palmeirense que comenta arbitragem</strong>
+        fingindo que torce pra ninguém. Ele nasceu verde, cresceu verde, respira verde —
+        mas quando abre o microfone, vira subitamente um analista <em>"neutro e imparcial"</em>.
+      </p>
+      <p>
+        O roteiro é sempre o mesmo: lance polêmico contra o Palmeiras?
+        <strong>Escândalo histórico</strong>, vídeo de 40 minutos, pedido de punição.
+        Lance polêmico contra os rivais? <span class="r">"Faz parte do jogo, não tem nada demais."</span>
+        Pano passado, arquivo fechado.
+      </p>
+      <p>
+        Quando não está passando pano pro time do coração, está atacando os rivais —
+        muitas vezes com <span class="y">informações que não batem com a realidade</span>.
+        Fake news embrulhada em terminologia técnica de arbitragem soa mais convincente.
+      </p>
+      <p>
+        E se alguém ousar questionar qualquer coisa? <span class="r">Bloqueado.</span>
+        Sem direito a réplica, sem aviso, sem despedida. A câmara de eco
+        precisa permanecer intacta e perfeita.
+      </p>
+    </div>
+
+    <div class="perfil-box">
+      <div class="p-topo">
+        <div class="p-ava">🤖</div>
+        <div>
+          <div class="p-nome">O Árbitro de IA</div>
+          <div class="p-handle">@soudoapito_mascara</div>
+        </div>
+      </div>
+      <div class="p-linha">
+        <span class="ic">🤖</span>
+        <span>Análises de arbitragem <strong>SEM CLUBISMO!</strong> (promete)</span>
+      </div>
+      <div class="p-linha">
+        <span class="ic">💚</span>
+        <span>Palmeirense desde pequeno — <span class="risco">ops, analista neutro</span></span>
+      </div>
+      <div class="p-linha">
+        <span class="ic">📰</span>
+        <span class="r">Especialista em notícias sobre rivais que não verificou</span>
+      </div>
+      <div class="p-linha">
+        <span class="ic">🎙</span>
+        <span>Convidado fixo de podcasts palmeirenses (mas sem clube)</span>
+      </div>
+      <div class="p-linha">
+        <span class="ic">🚫</span>
+        <span class="r">Bloqueia discordantes com velocidade de IA</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="div-line"></div>
+
+<!-- CARACTERÍSTICAS -->
+<div class="bg-alt">
+  <section class="sec">
+    <div class="sec-tag">Seção 02 — Manual do Espécime</div>
+    <h2 class="sec-h">As <span class="v">6 Características</span><br>do Palmeirense <span class="r">"Isento"</span></h2>
+
+    <div class="char-grid">
+
+      <div class="char-card">
+        <span class="cc-ico">💚</span>
+        <div class="cc-title">O Coração Verde Eterno</div>
+        <div class="cc-desc">
+          Palmeirense desde que nasceu. Cresceu ouvindo Rádio Bandeirantes narrar gol do Palmeiras.
+          Mas na bio do perfil? <strong>"Analista de arbitragem, sem clubismo."</strong>
+          O coração não mente. O feed entrega.
+        </div>
+      </div>
+
+      <div class="char-card red">
+        <span class="cc-ico">🚫</span>
+        <div class="cc-title">O Bloqueio Relâmpago</div>
+        <div class="cc-desc">
+          Discordou educadamente? <span class="r">Bloqueado.</span>
+          Apresentou dados? <span class="r">Bloqueado.</span>
+          Fez uma pergunta sincera? <span class="r">Bloqueado.</span>
+          Curtiu um post do Corinthians? Nem precisa comentar — <span class="r">bloqueado preventivamente.</span>
+        </div>
+      </div>
+
+      <div class="char-card yel">
+        <span class="cc-ico">📰</span>
+        <div class="cc-title">O Fábricante de Fake News</div>
+        <div class="cc-desc">
+          Quando o assunto é atacar os rivais, a verificação de fatos
+          <span class="y">fica pra depois</span> — ou nunca vem.
+          A notícia errada sobre o Corinthians, Flamengo ou Santos
+          já circulou. A correção? Nunca postada.
+        </div>
+      </div>
+
+      <div class="char-card">
+        <span class="cc-ico">🎙</span>
+        <div class="cc-title">O Crítico Seletivo</div>
+        <div class="cc-desc">
+          Rival perdeu? <span class="r">Análise devastadora</span>, thread longa, vídeo no YouTube.
+          Palmeiras perdeu? <strong>"A arbitragem foi um escândalo,
+          vou provar com dados."</strong> Os dados, claro, já estão selecionados.
+        </div>
+      </div>
+
+      <div class="char-card">
+        <span class="cc-ico">🤖</span>
+        <div class="cc-title">O Expert de IA</div>
+        <div class="cc-desc">
+          Usa termos como <strong>machine learning</strong>, <strong>LLMs</strong>
+          e <strong>agentes autônomos</strong> para parecer mais técnico e difícil de questionar.
+          Funciona bem com quem não entende de IA — e com quem ele ainda não bloqueou.
+        </div>
+      </div>
+
+      <div class="char-card red">
+        <span class="cc-ico">🔄</span>
+        <div class="cc-title">A Câmara de Eco Perfeita</div>
+        <div class="cc-desc">
+          Após anos bloqueando discordantes, a timeline é um espelho.
+          Todo mundo concorda, todo mundo elogia.
+          Confunde isso com <span class="r">"ter razão"</span> e
+          chama de <span class="r">"debate qualificado"</span>.
+        </div>
+      </div>
+
+    </div>
+  </section>
+</div>
+
+<div class="div-line"></div>
+
+<!-- FAKE NEWS -->
+<section class="sec">
+  <div class="sec-tag">Seção 03 — Arquivo de Fake News</div>
+  <h2 class="sec-h">As <span class="r">Fake News</span> Preferidas<br>sobre os <span class="v">Rivais</span></h2>
+
+  <div class="fake-grid">
+
+    <div class="fake-card">
+      <div class="fake-lado">
+        <div class="fake-label">Fake News</div>
+        <div class="fake-num">01</div>
+      </div>
+      <div class="fake-body">
+        <div class="fake-time">🚨 Urgente — Sobre o Corinthians</div>
+        <div class="fake-titulo">A Derrota Era Culpa da Arbitragem (era não)</div>
+        <div class="fake-desc">
+          Posta análise "técnica" mostrando que o time rival perdeu por <span class="r">culpa do árbitro</span>,
+          não porque jogou mal. Os lances escolhidos: apenas os que favorecem a narrativa.
+          Os lances que prejudicaram o time verde no mesmo jogo: <span class="r">não existem nesta análise</span>.
+        </div>
+        <div class="fake-real">
+          ✅ A realidade: o time rival simplesmente jogou mal naquele dia. O árbitro errou dos dois lados. A análise mostrou só metade.
+        </div>
+      </div>
+    </div>
+
+    <div class="fake-card">
+      <div class="fake-lado">
+        <div class="fake-label">Fake News</div>
+        <div class="fake-num">02</div>
+      </div>
+      <div class="fake-body">
+        <div class="fake-time">🚨 Urgente — Sobre o Flamengo</div>
+        <div class="fake-titulo">Estatística Inventada para Comprovar o Ponto</div>
+        <div class="fake-desc">
+          "O Flamengo recebe <span class="y">X% menos cartões</span> que a média —
+          prova de que a arbitragem favorece o Fla." O número circula, é compartilhado,
+          vira verdade. Ninguém verifica a fonte porque a fonte <span class="r">não existe</span>.
+        </div>
+        <div class="fake-real">
+          ✅ A realidade: os dados foram tirados de um recorte específico de 3 jogos. A média real aponta o contrário.
+        </div>
+      </div>
+    </div>
+
+    <div class="fake-card">
+      <div class="fake-lado">
+        <div class="fake-label">Fake News</div>
+        <div class="fake-num">03</div>
+      </div>
+      <div class="fake-body">
+        <div class="fake-time">🚨 Urgente — Sobre o Santos</div>
+        <div class="fake-titulo">Escândalo que Nunca Aconteceu</div>
+        <div class="fake-desc">
+          Notícia de bastidores sobre suposta <span class="r">irregularidade</span> no clube rival,
+          postada com ar de denúncia investigativa. Muitos compartilhamentos depois,
+          silêncio absoluto. Nenhum veículo confirmou.
+          <span class="r">Correção? Nunca publicada.</span>
+        </div>
+        <div class="fake-real">
+          ✅ A realidade: não aconteceu. A notícia veio de um perfil anônimo. Mas já tinha circulado o suficiente.
+        </div>
+      </div>
+    </div>
+
+    <div class="fake-card">
+      <div class="fake-lado">
+        <div class="fake-label">Fake News</div>
+        <div class="fake-num">04</div>
+      </div>
+      <div class="fake-body">
+        <div class="fake-time">🚨 Urgente — Método Geral</div>
+        <div class="fake-titulo">O Lance Que Ele "Esqueceu" de Mostrar</div>
+        <div class="fake-desc">
+          A análise de arbitragem mais famosa da semana:
+          mostra <span class="v">3 lances que prejudicaram o Palmeiras</span>
+          e <span class="r">nenhum lance que prejudicou o adversário no mesmo jogo</span>.
+          Chama isso de "análise completa e imparcial com metodologia científica".
+        </div>
+        <div class="fake-real">
+          ✅ A realidade: havia 4 lances polêmicos contra o adversário naquele mesmo jogo. Simplesmente não apareceram no vídeo.
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="div-line"></div>
+
+<!-- TRADUTOR -->
+<div class="bg-alt">
+  <section class="sec">
+    <div class="sec-tag">Seção 04 — Serviço Público de Tradução</div>
+    <h2 class="sec-h">O <span class="v">Tradutor</span> Automático<br>do <span class="r">Árbitro Neutro</span></h2>
+
+    <div class="trad-grid">
+
+      <div class="trad-bloco">
+        <div class="trad-col">
+          <div class="trad-tag a">O que ele posta</div>
+          <div class="trad-txt">
+            "Como analista <span class="y">isento</span>, o Corinthians jogou muito mal.
+            Péssima tática. Já o <span class="v">time verde</span> mostrou futebol de alto nível
+            mesmo perdendo por 3×0. Foi azar e arbitragem parcial."
+          </div>
+        </div>
+        <div class="trad-col">
+          <div class="trad-tag b">O que ele quer dizer</div>
+          <div class="trad-txt">
+            "Rival perdeu = culpa deles. Meu time perdeu feio = culpa de tudo e todos.
+            Continuarei me chamando de imparcial no post de amanhã."
+          </div>
+        </div>
+      </div>
+
+      <div class="trad-bloco">
+        <div class="trad-col">
+          <div class="trad-tag a">O que ele posta</div>
+          <div class="trad-txt">
+            "Análise técnica: o árbitro de hoje errou 3 lances graves que prejudicaram o
+            <span class="v">Palmeiras</span>. Isso não pode continuar acontecendo."
+          </div>
+        </div>
+        <div class="trad-col">
+          <div class="trad-tag b">O que ele quer dizer</div>
+          <div class="trad-txt">
+            "Havia 4 lances polêmicos contra o adversário no mesmo jogo.
+            Nenhum apareceu na análise. Metodologia científica seletiva."
+          </div>
+        </div>
+      </div>
+
+      <div class="trad-bloco">
+        <div class="trad-col">
+          <div class="trad-tag a">O que ele posta</div>
+          <div class="trad-txt">
+            "Bloqueei mais um hater que não sabe debater.
+            Só aceito diálogo <span class="y">civilizado</span> e argumentos técnicos.
+            Minha timeline precisa de qualidade. 🤖"
+          </div>
+        </div>
+        <div class="trad-col">
+          <div class="trad-tag b">O que ele quer dizer</div>
+          <div class="trad-txt">
+            "Alguém discordou com argumento válido e fonte confiável.
+            Bloqueado antes de eu precisar responder. Curadoria de qualidade."
+          </div>
+        </div>
+      </div>
+
+      <div class="trad-bloco">
+        <div class="trad-col">
+          <div class="trad-tag a">O que ele posta</div>
+          <div class="trad-txt">
+            "Falo de <span class="v">Inteligência Artificial</span> há anos.
+            Machine learning, LLMs, redes neurais. O futebol vai mudar com a tecnologia."
+          </div>
+        </div>
+        <div class="trad-col">
+          <div class="trad-tag b">O que ele quer dizer</div>
+          <div class="trad-txt">
+            "Postei sobre o Palmeiras o dia todo e fui chamado de fanático.
+            Uma semana falando de IA resolve minha imagem de analista neutro."
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</div>
+
+<div class="div-line"></div>
+
+<!-- BLOQUEIO CONTADOR -->
+<div class="bloq-sec">
+  <div class="bloq-top">Contador Oficial em Tempo Real</div>
+  <span class="bloq-num" id="counter">0</span>
+  <div class="bloq-label">Usuários Bloqueados por Discordar</div>
+  <div class="bloq-obs">(contagem parcial — os bloqueados não conseguem mais ver o perfil pra confirmar o número)</div>
+</div>
+
+<!-- APELIDOS -->
+<section class="sec">
+  <div class="sec-tag">Seção 05 — Nomenclatura Oficial</div>
+  <h2 class="sec-h">Os <span class="v">Apelidos</span><br>Oficialmente Atribuídos</h2>
+
+  <div class="apelidos-grid">
+
+    <div class="ape-card">
+      <div class="ape-bg">1</div>
+      <div class="ape-nome">O Isento de Verde</div>
+      <div class="ape-desc">Palmeirense desde o berço que jura ser imparcial. A neutralidade existe apenas na bio do perfil.</div>
+    </div>
+
+    <div class="ape-card">
+      <div class="ape-bg">2</div>
+      <div class="ape-nome">GPTorcedor</div>
+      <div class="ape-desc">Usa IA e jargão tecnológico pra disfarçar que a única inteligência que defende é a do time de coração.</div>
+    </div>
+
+    <div class="ape-card">
+      <div class="ape-bg">3</div>
+      <div class="ape-nome">Bloqueador 3000</div>
+      <div class="ape-desc">Velocidade de bloqueio menor que o VAR pra confirmar um gol. Chama de "curadoria de qualidade".</div>
+    </div>
+
+    <div class="ape-card">
+      <div class="ape-bg">4</div>
+      <div class="ape-nome">Fábrica de Narrativas</div>
+      <div class="ape-desc">Especialista em montar a análise do jogo com os lances que ele quer mostrar. Os outros lances não existem.</div>
+    </div>
+
+    <div class="ape-card">
+      <div class="ape-bg">5</div>
+      <div class="ape-nome">Câmara de Eco Verde</div>
+      <div class="ape-desc">Bloqueou tanto que a timeline só tem concordância. Confunde ausência de crítica com ter razão absoluta.</div>
+    </div>
+
+    <div class="ape-card">
+      <div class="ape-bg">6</div>
+      <div class="ape-nome">Árbitro do Próprio Nariz</div>
+      <div class="ape-desc">Apita todos os jogos com imparcialidade total — exceto os que envolvem um time de cor verde específico.</div>
+    </div>
+
+  </div>
+</section>
+
+<div class="div-line"></div>
+
+<!-- MEDIDORES -->
+<div class="bg-alt">
+  <section class="sec">
+    <div class="sec-tag">Seção 06 — Ciência e Dados</div>
+    <h2 class="sec-h">Gráficos <span class="v">Científicos</span><br>e <span class="r">Irrefutáveis</span></h2>
+
+    <div class="med-box">
+
+      <div class="med-row">
+        <div class="med-label">Isenção <em>declarada</em> pelo próprio analista</div>
+        <div class="med-right">
+          <div class="med-val c-v">100%</div>
+          <div class="med-track"><div class="med-fill f-v" data-w="100"></div></div>
+        </div>
+      </div>
+
+      <div class="med-row">
+        <div class="med-label">Isenção <em>real</em>, medida por terceiros</div>
+        <div class="med-right">
+          <div class="med-val c-r">2%</div>
+          <div class="med-track"><div class="med-fill f-r" data-w="2"></div></div>
+        </div>
+      </div>
+
+      <div class="med-row">
+        <div class="med-label">Lances do Palmeiras mostrados nas análises</div>
+        <div class="med-right">
+          <div class="med-val c-v">98%</div>
+          <div class="med-track"><div class="med-fill f-v" data-w="98"></div></div>
+        </div>
+      </div>
+
+      <div class="med-row">
+        <div class="med-label">Lances dos rivais mostrados nas análises</div>
+        <div class="med-right">
+          <div class="med-val c-r">8%</div>
+          <div class="med-track"><div class="med-fill f-r" data-w="8"></div></div>
+        </div>
+      </div>
+
+      <div class="med-row">
+        <div class="med-label">Velocidade de bloqueio após discordância</div>
+        <div class="med-right">
+          <div class="med-val c-r">99%</div>
+          <div class="med-track"><div class="med-fill f-r" data-w="99"></div></div>
+        </div>
+      </div>
+
+      <div class="med-row">
+        <div class="med-label">Notícias sobre rivais verificadas antes de postar</div>
+        <div class="med-right">
+          <div class="med-val c-r">4%</div>
+          <div class="med-track"><div class="med-fill f-r" data-w="4"></div></div>
+        </div>
+      </div>
+
+      <div class="med-row">
+        <div class="med-label">Correções publicadas após fake news confirmadas</div>
+        <div class="med-right">
+          <div class="med-val c-r">0%</div>
+          <div class="med-track"><div class="med-fill f-r" data-w="0.5"></div></div>
+        </div>
+      </div>
+
+      <div class="med-row">
+        <div class="med-label">Uso desnecessário de jargão de IA para parecer técnico</div>
+        <div class="med-right">
+          <div class="med-val c-y">96%</div>
+          <div class="med-track"><div class="med-fill f-y" data-w="96"></div></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</div>
+
+<div class="div-line"></div>
+
+<!-- VEREDICTO -->
+<section class="ver-sec">
+  <div class="ver-inner">
+    <span class="ver-ico">⚖️</span>
+
+    <div class="ver-h">
+      <span class="l1">Veredicto Final</span>
+      <span class="l2">Culpado</span>
+      <span class="l3">— pelo Tribunal dos Bloqueados —</span>
+    </div>
+
+    <p class="ver-txt">
+      Palmeirense desde sempre — sem vergonha nisso, tudo bem.<br>
+      O problema: fingir ser <span class="v">"analista neutro"</span> enquanto passa pano pro time de coração.<br>
+      Atacar rivais com <span class="r">fake news</span> embrulhada em terminologia técnica.<br>
+      Nunca publicar a correção quando a notícia errada é desmentida.<br>
+      Bloquear todo mundo que apresenta um contra-argumento.<br>
+      Chamar a câmara de eco criada pelo próprio de <span class="y">"debate qualificado"</span>.<br><br>
+      Isso não é análise de arbitragem.<br>
+      <strong>Isso é torcer com passos extras.</strong>
+    </p>
+
+    <div class="ver-sentenca">
+      💚 Bem-vindo ao clube, Isento 🤖
+    </div>
+
+    <div class="ver-assina">
+      — O Tribunal dos Bloqueados, em sessão permanente
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">O Isento de Verde</div>
+  <p>
+    <strong>Aviso legal:</strong> Este site é sátira e ficção humorística.
+    Qualquer semelhança com pessoa real, perfil real ou time real é mera coincidência.
+    Nenhum palmeirense foi identificado durante a produção deste material. 😇
+    Distribuição gratuita para todos que foram bloqueados.
+  </p>
+</footer>
+
+<script>
+  // Contador
+  const el = document.getElementById('counter');
+  const obsC = new IntersectionObserver(([e]) => {
+    if (!e.isIntersecting) return;
+    let v = 0;
+    const t = setInterval(() => {
+      v = Math.min(v + 180, 9999);
+      el.textContent = v >= 9999 ? '∞' : v.toLocaleString('pt-BR');
+      if (v >= 9999) clearInterval(t);
+    }, 14);
+    obsC.unobserve(el);
+  }, { threshold: 0.5 });
+  obsC.observe(el);
+
+  // Medidores
+  const fills = document.querySelectorAll('.med-fill');
+  const obsM = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.width = e.target.dataset.w + '%';
+        obsM.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.2 });
+  fills.forEach(f => obsM.observe(f));
+</script>
+</body>
+</html>
